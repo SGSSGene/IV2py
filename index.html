@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>IV2py</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="css/foundation.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Introduction";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="js/highlight-10.5.0.min.js"></script>
+      <script src="js/hljs-cmake-10.5.0.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> IV2py
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="index.html">Introduction</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#support">Support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#api-reference">API Reference</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IV2py</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introduction">Introduction</h1>
+<p><strong>IV2py</strong> provides python bindings for <strong>IVio</strong>.
+The goal is to cover typical functionality for <strong>bioinformatics</strong>.</p>
+<h2 id="support">Support</h2>
+<ul>
+<li><strong>fasta</strong> (rw) + <strong>gzip</strong> (rw)</li>
+<li><strong>sam</strong> (rw)</li>
+</ul>
+<p>(description - rw: read/write, ro: read-only)</p>
+<p><strong>Note</strong>: Currently only Linux is supported.</p>
+<h2 id="usage">Usage</h2>
+<p>For python we have a package called <strong>iv2py</strong>.
+This can be easily installed via <code>pip install iv2py</code>.</p>
+<p>Here an example of reading a fasta file:</p>
+<pre><code class="language-python">import iv2py as iv
+
+for record in iv.fasta.reader(file='file.fa'):
+    print(record.id)
+    print(record.seq)
+</code></pre>
+<p>To write a fasta file, each record has to be provided as a fasta::record</p>
+<pre><code class="language-python">import iv2py as iv
+
+record = iv.fasta.record(id=&quot;my id&quot;, seq=&quot;somesequence&quot;)
+
+writer = iv.fasta.writer(file='file.fa')
+writer.write(record)
+writer.close()
+</code></pre>
+<h2 id="api-reference">API Reference</h2>
+<p>Following classes are currently available:</p>
+<ul>
+<li><code>iv2py.fasta.record</code></li>
+<li><code>iv2py.fasta.reader</code></li>
+<li><code>iv2py.fasta.writer</code></li>
+<li><code>iv2py.sam.record</code></li>
+<li><code>iv2py.sam.reader</code></li>
+<li><code>iv2py.sam.writer</code></li>
+</ul>
+              
+            </div>
+          </div><footer>
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="extra-highlights.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.4.2
+Build Date UTC : 2023-03-23 12:42:22.746560+00:00
+-->
